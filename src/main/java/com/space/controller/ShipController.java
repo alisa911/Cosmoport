@@ -10,6 +10,7 @@ import org.springframework.data.domain.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,7 @@ public class ShipController {
 
     @Autowired
     private ShipService shipService;
-
+    @Transactional
     @GetMapping("/rest/ships/count")
     public ResponseEntity<?> getShipsCount(@RequestParam (value = "name", required = false) String name,
                                  @RequestParam (value = "planet", required = false) String planet,
@@ -53,7 +54,7 @@ public class ShipController {
         return new ResponseEntity<>(count,HttpStatus.OK);
     }
 
-
+    @Transactional
     @GetMapping("/rest/ships")
     public  ResponseEntity<?> getShipsList(
             @RequestParam (value = "name", required = false) String name,
@@ -80,7 +81,7 @@ public class ShipController {
             return ResponseEntity.ok().body(ships.getContent());
         }
 
-
+    @Transactional
     @PostMapping("/rest/ships/")
     public  ResponseEntity<?> createShip (@RequestBody @Valid Ship ship, BindingResult result) {
 
@@ -91,7 +92,7 @@ public class ShipController {
             return ResponseEntity.ok().body(ship);
         }
     }
-
+    @Transactional
     @GetMapping("/rest/ships/{id}")
     public ResponseEntity<?> getShip ( @PathVariable Long id) {
 
@@ -116,7 +117,7 @@ public class ShipController {
             return ResponseEntity.ok().body(shipPojo);
         }
     }
-
+    @Transactional
     @DeleteMapping("/rest/ships/{id}")
     public ResponseEntity<?> deleteShip(@PathVariable(value="id") @Valid Long id) {
         if (id == 0) {
@@ -128,7 +129,7 @@ public class ShipController {
             shipService.deleteShip(id);
             return new ResponseEntity<>(HttpStatus.OK);
     }
-
+    @Transactional
     @PostMapping("/rest/ships/{id}")
     public ResponseEntity<?> updateShip( @Valid @RequestBody ShipPojo ship, @PathVariable Long id ) {
 
