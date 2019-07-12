@@ -146,7 +146,6 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>2.0.8</version>
                 <configuration>
-                    <appName>cosmoport</appName>
                     <processTypes>
                         <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
                     </processTypes>
