@@ -1,25 +1,24 @@
-USE test;
-
 DROP TABLE IF EXISTS ship;
+DROP SEQUENCE IF EXISTS global_seq;
+
+CREATE SEQUENCE global_seq START WITH 100000;
 
 CREATE TABLE ship
 (
-    id       BIGINT(20)  NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     name     VARCHAR(50) NULL,
     planet   VARCHAR(50) NULL,
     shipType VARCHAR(9)  NULL,
     prodDate date        NULL,
-    isUsed   BIT(1)      NULL,
-    speed    DOUBLE      NULL,
-    crewSize INT(4)      NULL,
-    rating   DOUBLE      NULL,
-    PRIMARY KEY (id)
-)
-    ENGINE = InnoDB
-    DEFAULT CHARACTER SET = utf8;
+    isUsed   BOOLEAN default true     NULL,
+    speed    VARCHAR      NULL,
+    crewSize VARCHAR(4)      NULL,
+    rating   VARCHAR     NULL
 
-insert into ship(name, planet, shipType, prodDate, isUsed, speed, crewSize, rating)
-values ('Orion III', 'Mars', 'MERCHANT', '2995-01-01', true, 0.82, 617, 1.31)
+);
+
+INSERT INTO ship(name, planet, shipType, prodDate, isUsed, speed, crewSize, rating)
+VALUES ('Orion III', 'Mars', 'MERCHANT', '2995-01-01', true, 0.82, 617, 1.31)
      , ('Daedalus', 'Jupiter', 'MERCHANT', '3001-01-01', true, 0.94, 1619, 1.98)
      , ('Eagle Transporter', 'Earth', 'TRANSPORT', '2989-01-01', true, 0.79, 4527, 1.02)
      , ('F-302 Mongoose', 'Neptune', 'MILITARY', '3011-01-01', false, 0.24, 2170, 2.13)

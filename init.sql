@@ -1,19 +1,20 @@
 DROP TABLE IF EXISTS ship;
+DROP SEQUENCE IF EXISTS global_seq;
 
 CREATE SEQUENCE global_seq START WITH 100000;
 
 CREATE TABLE ship
 (
-    id       INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    id INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     name     VARCHAR(50) NULL,
     planet   VARCHAR(50) NULL,
     shipType VARCHAR(9)  NULL,
     prodDate date        NULL,
-    isUsed   BIT(1)      NULL,
+    isUsed   BOOLEAN default true     NULL,
     speed    VARCHAR      NULL,
     crewSize VARCHAR(4)      NULL,
-    rating   VARCHAR     NULL,
-    PRIMARY KEY (id)
+    rating   VARCHAR     NULL
+
 );
 
 INSERT INTO ship(name, planet, shipType, prodDate, isUsed, speed, crewSize, rating)

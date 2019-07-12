@@ -39,10 +39,10 @@ public class TestDataSourceConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test?serverTimezone=UTC");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl("jdbc:postgresql://ec2-54-220-0-91.eu-west-1.compute.amazonaws.com:5432/d8qjph010pri13?sslmode=require");
+        dataSource.setUsername("nsdupbamiriagp");
+        dataSource.setPassword("e82ba7093da00e720996a6a3f3c18680018ca096aa92946bee96a50e318eac94");
         return dataSource;
     }
 
