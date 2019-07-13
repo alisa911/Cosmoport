@@ -60,7 +60,8 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background: url(./images/578889c04c488155ed5a1738.jpg) no-repeat center center fixed;
+
 }
 
 [tabindex="-1"]:focus {
@@ -10036,3 +10037,9 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+.content-wrap {
+
+  background-color: #E9ECEF;  border-radius: 10px;
+}
