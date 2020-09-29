@@ -1,20 +1,16 @@
-Приложение ведет учет космических кораблей в
-далеком будущем. 
+Url https://cosmoport.herokuapp.com/
 
-Ссылка на приложение https://cosmoport.herokuapp.com/
+Implemented:
+1. get a list of all existing ships;
+2. create a new ship;
+3. edit the characteristics of an existing vehicle;
+4. remove the ship;
+5. receive ship by id;
+6.receive a filtered list of ships according to
+passed filters;
+7. get the number of ships that match the filters.
 
-Реализованы следующие
-возможности:
-1. получать список всех существующих кораблей;
-2. создавать новый корабль;
-3. редактировать характеристики существующего корабля;
-4. удалять корабль;
-5. получать корабль по id;
-6. получать отфильтрованный список кораблей в соответствии с
-переданными фильтрами;
-7. получать количество кораблей, которые соответствуют фильтрам.
-
-Также присутствовует бизнес-логика:
-Перед сохранением корабля в базу данных (при добавлении нового или
-при апдейте характеристик существующего), высчитывается
-рейтинг корабля и сохраняется в БД.
+Business logic is also present:
+Before saving the ship to the database (when adding a new or
+when updating the characteristics of an existing one), is calculated
+the ship's rating is saved in the database.
